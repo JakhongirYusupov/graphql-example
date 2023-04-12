@@ -11,4 +11,25 @@ export default gql`
   type Query {
     animals: [Animal!]
   }
+  type Message {
+    message: String!
+  }
+
+  type ResAnimal {
+    message: String!
+    data: Animal
+  }
+
+  type Mutation {
+    createAnimal(name: String!, color: String!, type: String!): Message!
+
+    updateAnimal(
+      id: Int!
+      name: String
+      color: String
+      type: String
+    ): ResAnimal!
+
+    deleteAnimal(id: Int!): Message!
+  }
 `;
